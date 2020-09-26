@@ -1,4 +1,4 @@
-FROM registry.symbiote.com.au/docker/php:7.4
+FROM registry.symbiote.com.au/docker/php:7.3
 
 RUN apt-get update && apt-get install -y git
 
