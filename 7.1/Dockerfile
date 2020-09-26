@@ -1,4 +1,4 @@
-FROM symbiote/php-fpm:7.1
+FROM registry.symbiote.com.au/docker/php:7.1
 
 RUN apt-get update && apt-get install -y \
     git
