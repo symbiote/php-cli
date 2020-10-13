@@ -1,4 +1,4 @@
-docker-build-master:
+docker-phpcli-latest:
   # Official docker image.
   image: docker:19.03.12
   stage: build
@@ -16,23 +16,9 @@ docker-build-master:
       - memory.ini
       - sspak.phar
       - tools-entrypoint.sh
+  trigger: docker/php-cli-latest
 
-
-docker-build:
-  # Official docker image.
-  image: docker:19.03.12
-  stage: build
-  services:
-    - docker:19.03.12-dind
-  before_script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
-    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-  except:
-    - master
-
-docker-build-php-5.6:
+docker-phpcli-5.6:
   # Official docker image.
   image: docker:19.03.12
   stage: build
@@ -48,7 +34,7 @@ docker-build-php-5.6:
     changes:
       - 5.6/*
 
-docker-build-php-7.1:
+docker-phpcli-7.1:
   # Official docker image.
   image: docker:19.03.12
   stage: build
@@ -64,7 +50,7 @@ docker-build-php-7.1:
     changes:
       - 7.1/*
 
-docker-build-php-7.3:
+docker-phpcli-7.3:
   # Official docker image.
   image: docker:19.03.12
   stage: build
@@ -80,7 +66,7 @@ docker-build-php-7.3:
     changes:
       - 7.3/*
 
-docker-build-php-8.rc:
+docker-phpcli-8.rc:
   # Official docker image.
   image: docker:19.03.12
   stage: build
