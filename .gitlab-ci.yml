@@ -16,7 +16,6 @@ docker-phpcli-latest:
       - memory.ini
       - sspak.phar
       - tools-entrypoint.sh
-  trigger: docker/php-cli-latest
 
 docker-phpcli-5.6:
   # Official docker image.
