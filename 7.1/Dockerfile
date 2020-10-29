@@ -5,11 +5,11 @@ RUN apt-get update && apt-get install -y \
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME "/usr/local/composer" 
-ENV COMPOSER_VERSION 1.8.0
+ENV COMPOSER_VERSION 2.0.3
 ENV PATH "${COMPOSER_HOME}/vendor/bin:${PATH}"
 
-RUN mkdir -p $COMPOSER_HOME \
-    && curl --silent https://getcomposer.org/download/1.10.15/composer.phar --output /usr/bin/composer \
+RUN mkdir -p ${COMPOSER_HOME} \
+    && curl --silent https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar --output /usr/bin/composer \
     && chmod +x /usr/bin/composer
 
 RUN composer global require phing/phing && chown -R www-data ${COMPOSER_HOME}
