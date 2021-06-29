@@ -6,7 +6,7 @@ phpcli-latest:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE" -t "$CI_REGISTRY_IMAGE:7.4"  -t symbiote/php-cli:latest -t symbiote/php-cli:7.4 .
     - docker push "$CI_REGISTRY_IMAGE"
@@ -14,7 +14,7 @@ phpcli-latest:
     - docker push symbiote/php-cli:7.4
   only:
     refs:
-      - master 
+      - master
     changes:
       - Dockerfile
       - memory.ini
@@ -29,7 +29,7 @@ phpcli-5.6:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - cd 5.6
     - docker build --pull -t "$CI_REGISTRY_IMAGE:5.6" -t symbiote/php-cli:5.6 .
@@ -49,7 +49,7 @@ phpcli-7.1:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - cd 7.1
     - docker build --pull -t "$CI_REGISTRY_IMAGE:7.1" -t symbiote/php-cli:7.1 .
@@ -57,7 +57,7 @@ phpcli-7.1:
     - docker push symbiote/php-cli:7.1
   only:
     refs:
-      - master 
+      - master
     changes:
       - 7.1/*
 
@@ -69,7 +69,7 @@ phpcli-7.3:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - cd 7.3
     - docker build --pull -t "$CI_REGISTRY_IMAGE:7.3" -t symbiote/php-cli:7.3 .
@@ -89,7 +89,7 @@ phpcli-8.rc:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - cd 8.rc
     - docker build --pull -t "$CI_REGISTRY_IMAGE:8-rc" -t symbiote/php-cli:8-rc .
@@ -111,7 +111,7 @@ phpcli-latest-branch:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" -t "$CI_REGISTRY_IMAGE:7.4-$CI_COMMIT_REF_SLUG"  -t symbiote/php-cli:latest-$CI_COMMIT_REF_SLUG -t symbiote/php-cli:7.4-$CI_COMMIT_REF_SLUG .
     - docker push "$CI_REGISTRY_IMAGE"
@@ -124,7 +124,7 @@ phpcli-latest-branch:
       - sspak.phar
       - tools-entrypoint.sh
   except:
-      - master
+    - master
 
 phpcli-5.6-branch:
   # Official docker image.
@@ -134,7 +134,7 @@ phpcli-5.6-branch:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - cd 5.6
     - docker build --pull -t "$CI_REGISTRY_IMAGE:5.6-$CI_COMMIT_REF_SLUG" -t symbiote/php-cli:5.6-$CI_COMMIT_REF_SLUG .
@@ -144,7 +144,7 @@ phpcli-5.6-branch:
     changes:
       - 5.6/*
   except:
-      - master
+    - master
 
 phpcli-7.1-branch:
   # Official docker image.
@@ -154,7 +154,7 @@ phpcli-7.1-branch:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - cd 7.1
     - docker build --pull -t "$CI_REGISTRY_IMAGE:7.1-$CI_COMMIT_REF_SLUG" -t symbiote/php-cli:7.1-$CI_COMMIT_REF_SLUG .
@@ -164,7 +164,7 @@ phpcli-7.1-branch:
     changes:
       - 7.1/*
   except:
-      - master
+    - master
 
 phpcli-7.3-branch:
   # Official docker image.
@@ -174,7 +174,7 @@ phpcli-7.3-branch:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - cd 7.3
     - docker build --pull -t "$CI_REGISTRY_IMAGE:7.3-$CI_COMMIT_REF_SLUG" -t symbiote/php-cli:7.3-$CI_COMMIT_REF_SLUG .
@@ -184,7 +184,27 @@ phpcli-7.3-branch:
     changes:
       - 7.3/*
   except:
-      - master
+    - master
+
+phpcli-7.4-branch:
+  # Official docker image.
+  image: docker:19.03.12
+  stage: build
+  services:
+    - docker:19.03.12-dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
+  script:
+    - cd 7.4
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:7.4-$CI_COMMIT_REF_SLUG" -t symbiote/php-cli:7.4-$CI_COMMIT_REF_SLUG .
+    - docker push "$CI_REGISTRY_IMAGE:7.4-$CI_COMMIT_REF_SLUG"
+    - docker push symbiote/php-cli:7.4-$CI_COMMIT_REF_SLUG
+  only:
+    changes:
+      - 7.4/*
+  except:
+    - master
 
 phpcli-8.rc-branch:
   # Official docker image.
@@ -194,7 +214,7 @@ phpcli-8.rc-branch:
     - docker:19.03.12-dind
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS} 
+    - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
   script:
     - cd 8.rc
     - docker build --pull -t "$CI_REGISTRY_IMAGE:8-rc-$CI_COMMIT_REF_SLUG" -t symbiote/php-cli:8-rc-$CI_COMMIT_REF_SLUG .
@@ -204,4 +224,4 @@ phpcli-8.rc-branch:
     changes:
       - 8.rc/*
   except:
-      - master
+    - master
