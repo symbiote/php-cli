@@ -101,7 +101,7 @@ phpcli-8.rc:
     changes:
       - 8.rc/*
 
-phpcli-8.0
+phpcli-8.0:
   # Official docker image.
   image: docker:19.03.12
   stage: build
@@ -119,7 +119,7 @@ phpcli-8.0
     refs:
       - master
     changes:
-      - 8.0/
+      - 8.0/*
 
 ### BRANCH CONFIGURATION ###
 
@@ -226,7 +226,7 @@ phpcli-8.rc-branch:
   except:
       - master
 
-  phpcli-8.0-branch:
+phpcli-8.0-branch:
   # Official docker image.
   image: docker:19.03.12
   stage: build
