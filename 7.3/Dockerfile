@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y git
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME "/usr/local/composer" 
-ENV COMPOSER_VERSION 2.0.13
+ENV COMPOSER_VERSION 2.1.3
 ENV PATH "${COMPOSER_HOME}/vendor/bin:${PATH}"
 
 RUN mkdir -p ${COMPOSER_HOME} \
